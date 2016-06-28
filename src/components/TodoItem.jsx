@@ -1,6 +1,5 @@
 import React from 'react';
-
-import TextInput from '/TextInput';
+import TextInput from './TextInput';
 
 export default class TodoItem extends React.Component {
   render() {

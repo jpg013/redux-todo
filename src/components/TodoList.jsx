@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 
-export default class TodoItem extends React.Component {
+export default class TodoList extends React.Component {
     render() {
       return <div className="main">
         <ul className="todo-list">

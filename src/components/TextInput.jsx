@@ -7,3 +7,5 @@ class TextInput extends React.Component {
                   type="text"></input>
   }
 }
+
+export default TextInput;
