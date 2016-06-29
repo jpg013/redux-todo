@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {List, Map} from 'immutable';
 import {createStore} from 'redux';
-import {Provider} from './react-redux';
+import {Provider} from 'react-redux';
 import reducer from './reducer';
 import {TodoAppContainer} from './components/TodoApp'
 
@@ -31,6 +31,6 @@ store.dispatch({
 ReactDOM.render(
   <Provider store={store}>
       <TodoAppContainer></TodoAppContainer>
-  </Provider>
+  </Provider>,
   document.getElementById('app')
 );
