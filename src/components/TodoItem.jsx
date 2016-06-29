@@ -8,6 +8,7 @@ export default class TodoItem extends React.Component {
         super(props);
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
         this.deleteItem = () => this.props.deleteItem(this.props.id);
+        this.toggleComplete = () => this.props.toggleComplete(this.props.id);
     }
     render() {
         var itemClass = classNames({
@@ -18,7 +19,7 @@ export default class TodoItem extends React.Component {
 
         return <li className={itemClass}>
           <div className="view">
-            <input type="checkbox" className="toggle" defaultChecked={this.props.isCompleted}></input>
+            <input type="checkbox" className="toggle" defaultChecked={this.props.isCompleted} onClick={this.toggleComplete}></input>
             <label htmlFor="todo">{this.props.text}</label>
             <button className="destroy" onClick={this.deleteItem}></button>
           </div>

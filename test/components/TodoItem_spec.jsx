@@ -60,4 +60,18 @@ describe('TodoItem', () => {
         Simulate.click(buttons[0]);
         expect(deleted).to.equal(true);
     });
+
+    it('invokes callback when checkbox is clicked', () => {
+        const text = 'React';
+        var isChecked = false;
+        const toggleComplete = () => isChecked = true;
+        const component = renderIntoDocument(
+          <TodoItem text={text} toggleComplete={toggleComplete}></TodoItem>
+        );
+
+        const checkboxes = scryRenderedDOMComponentsWithTag(component, 'input');
+        Simulate.click(checkboxes[0]);
+
+        expect(isChecked).to.equal(true);
+    });
 });
