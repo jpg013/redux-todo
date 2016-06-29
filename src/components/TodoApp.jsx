@@ -6,7 +6,7 @@ require("../../styles/app.css");
 export default class TodoApp extends React.Component {
   render() {
     return <div>
-        <TodoList todos={this.props.todos}></TodoList>
+        <TodoList filter={this.props.filter} todos={this.props.todos}></TodoList>
     </div>
   }
 };
