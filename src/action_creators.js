@@ -2,7 +2,7 @@ export function toggleComplete(itemId) {
     return {
       type: 'TOGGLE_COMPLETE',
       itemId
-    }
+    };
 }
 
 export function changeFilter(filter) {
@@ -31,5 +31,25 @@ export function doneEditing(itemId, newText) {
         type: 'DONE_EDITING',
         itemId,
         newText
+    };
+}
+
+export function clearCompleted() {
+    return {
+      type: 'CLEAR_COMPLETED'
+    };
+}
+
+export function addItem(text) {
+    return {
+      type: 'ADD_ITEM',
+      text
+    };
+}
+
+export function deleteItem(itemId) {
+    return {
+      type: 'DELETE_ITEM',
+      itemId
     };
 }

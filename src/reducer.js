@@ -52,6 +52,14 @@ function doneEditing(state, itemId, newText) {
     return state.update('todos', todos => todos.set(index, updatedItem));
 }
 
+function clearCompleted(state) {
+    var incompleteTodos = state
+      .get('todos')
+      .filter(todo => todo.get('status') !== 'completed');
+
+    return state.set('todos', incompleteTodos);
+}
+
 export default function(state = Map(), action) {
     switch(action.type) {
         case 'SET_STATE':
@@ -66,6 +74,8 @@ export default function(state = Map(), action) {
           return cancelEditing(state, action.itemId);
         case 'DONE_EDITING':
           return doneEditing(state, action.itemId, action.newText);
+        case 'CLEAR_COMPLETED':
+          return clearCompleted(state);
     }
     return state;
 }
