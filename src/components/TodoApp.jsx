@@ -1,13 +1,14 @@
 import React from 'react';
 import TodoList from './TodoList';
 import {connect} from 'react-redux';
+import * as actionCreators from '../action_creators';
 
 require("../../styles/app.css");
 
 export class TodoApp extends React.Component {
   render() {
     return <div>
-        <TodoList filter={this.props.filter} todos={this.props.todos}></TodoList>
+        <TodoList {...this.props}></TodoList>
     </div>
   }
 };
@@ -19,4 +20,4 @@ function mapStateToProps(state) {
     };
 }
 
-export const TodoAppContainer = connect(mapStateToProps)(TodoApp);
+export const TodoAppContainer = connect(mapStateToProps, actionCreators)(TodoApp);
