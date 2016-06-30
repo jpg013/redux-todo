@@ -6,12 +6,6 @@ import {Provider} from 'react-redux';
 import reducer from './reducer';
 import {TodoAppContainer} from './components/TodoApp'
 
-const todos = List.of(
-  Map({id: 1, text: 'React', status: 'active', editing: false}),
-  Map({id: 2, text: 'Redux', status: 'active', editing: false}),
-  Map({id: 3, text: 'Immutable', status: 'completed', editing: false})
-);
-
 // Instantiate new Redux Store
 const store = createStore(reducer);
 
