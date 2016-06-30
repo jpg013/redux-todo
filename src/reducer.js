@@ -60,6 +60,25 @@ function clearCompleted(state) {
     return state.set('todos', incompleteTodos);
 }
 
+function addItem(state, text) {
+    // Get the highest existing id and increment by 1
+    var id = state
+      .get('todos')
+      .reduce((maxId, item) => Math.max(maxId, item.get('id')), 0) + 1;
+    var newItem = Map({
+      id,
+      text: text,
+      status: 'active'
+    });
+    return state.update('todos', (todos) => todos.push(newItem));
+}
+
+function removeItem(state, itemId) {
+    return state.update('todos', (todos) => todos.filterNot(
+      (todo) => todo.get('id') === itemId
+    ));
+}
+
 export default function(state = Map(), action) {
     switch(action.type) {
         case 'SET_STATE':
@@ -76,6 +95,10 @@ export default function(state = Map(), action) {
           return doneEditing(state, action.itemId, action.newText);
         case 'CLEAR_COMPLETED':
           return clearCompleted(state);
+        case 'ADD_ITEM':
+          return addItem(state, action.text);
+        case 'DELETE_ITEM':
+          return removeItem(state, action.itemId);
     }
     return state;
 }
