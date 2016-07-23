@@ -3,11 +3,11 @@ import TodoList from './TodoList';
 import {connect} from 'react-redux';
 import * as actionCreators from '../action_creators';
 
-require("../../styles/app.css");
+require("../../styles/app.scss");
 
 export class TodoApp extends React.Component {
   render() {
-    return <div>
+    return <div className="helloKitty">
         <TodoList {...this.props}></TodoList>
     </div>
   }

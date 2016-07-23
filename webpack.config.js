@@ -1,4 +1,5 @@
 var webpack = require('webpack'); // Requiring the webpack lib
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: [
@@ -11,9 +12,11 @@ module.exports = {
       test: /\.jsx?$/,
       exclude: /node_modules/,
       loader: 'react-hot!babel' // Include the react-hot loader
-     },
-     { test: /\.css$/, loader: "style-loader!css-loader" }
-    ]
+    },
+    {
+      test: /\.scss$/,
+      loader: ExtractTextPlugin.extract('css!sass')
+    }]
   },
   resolve: {
     extensions: ['', '.js', '.jsx']
@@ -28,6 +31,9 @@ module.exports = {
     hot: true // Activate hot loading
   },
   plugins: [
+    new ExtractTextPlugin('public/style.css', {
+      allChunks: true
+    }),
     new webpack.HotModuleReplacementPlugin() // Wire in the hot loading plugin
   ]
 };

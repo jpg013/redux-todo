@@ -1,5 +1,7 @@
-$test: 'green';
+$test: #ff0000;
 
-.testClass {
+.helloKitty {
+  height: 150px;
+  width: 150px;
   background-color: $test;
 }

@@ -4,10 +4,10 @@ import {List, Map} from 'immutable';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import reducer from './reducer';
-import {TodoAppContainer} from './components/TodoApp'
+import {TodoAppContainer} from './components/TodoApp';
 
 // Instantiate new Redux Store
-const store = createStore(reducer);
+const store = createStore(reducer, window.devToolsExtension && window.devToolsExtension());
 
 // Set intial state
 store.dispatch({
